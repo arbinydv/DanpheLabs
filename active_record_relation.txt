@@ -1,0 +1,24 @@
+## ER Diagram using crow-foot notation 
+
+A system has many shops. 
+A shop has many products, which can fall into one or many categories.
+The products can have different prices on different dates.
+
+
+System Table 
+- system_id (PK) 
+
+Shop Table 
+- shop_id (PK)
+
+Product Table 
+- product_id ( PK)
+
+
+ProductPrice Table 
+ - product_id (FK)
+ - date
+ - price 
+
+Category Table 
+- category_id
