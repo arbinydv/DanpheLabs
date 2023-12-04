@@ -1,48 +1,34 @@
-# Number Conversion 
 def convert_number(num, from , to)
-  if to == 1
-    puts "Converting #{num} from #{from} to binary"
-    to_binary(num)
+  # find conversion_type
+  convert_to  = to == 1 ? 'binary' : 'octal'
+  
+  puts "Converting #{num} from #{from} to #{convert_to}"
+
+  if to == 1 
+    to_base(num, 2)
   else
-    puts "Converting #{num} from #{from} to octal"
-    to_octal(num)
+    to_base(num, 8)
   end
 end
 
-def to_binary(number)
-  bin_string = ""
-  index = 0
-  while number > 0
-    bin_string << (number%2).to_s
-    number = number/2
-    index += 1
+def to_base(num,b)
+  str = ""
+  indx = 0
+
+  while num > 0
+    str << (num % b).to_s
+    num = num/b 
+    indx += 1
   end
 
-  puts bin_string.reverse
-end 
-
-def to_octal(number)
-  if number < 8 
-    puts number 
-    return
-  else
-    dec_string = ""
-    indx = 0
-    while number > 0
-      dec_string << (number % 8).to_s
-      number = number/8
-      indx += 1
-    end
-    puts dec_string.reverse
-  end
-end 
-
+  puts str.reverse
+end
 
 puts "Enter a number"
 num = gets.chomp.to_i
 
-## Give user to selectbinary or octal
-puts "Choose conversion from:\n"
+## Give user to select binary or octal
+puts "Choose conversion from (e.g., 'decimal'):\n"
 from = gets.chomp 
 
 puts "Choose conversion to:"
